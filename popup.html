@@ -1,0 +1,178 @@
+
+<HyperlinkPreviewer>
+    <div id="HyperlinkPreview-Popup">
+        <div id="HyperlinkPreview-TopNav">
+            <div class="HyperlinkPreview-Row">
+                <button type="button" class="HyperlinkPreview-Popup-Secondary" id="HyperlinkPreview-IconButton"><img src="." alt="X-button"  id="HyperlinkPreview-TopNav-CloseButton"></button>
+                <div style="width:20px"></div>
+                <p id="HyperlinkPreview-WebsiteViewingPrompt">Viewing: {website}</p>
+            </div>
+        </div>
+        <div id="HyperlinkPreview-Popup-ContentHelper">
+            <iframe id="HyperlinkPreview-Popup-content" sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer">
+            </iframe>
+        </div>
+        <div id="HyperlinkPreview-Popup-forbidden">
+            Forbidden (This website doesn't accept previews)
+        </div>
+        <div id="HyperlinkPreview-Popup-loading">
+            Loading ...
+        </div>
+        <div id="HyperlinkPreview-Popup-trust">
+            <p>Do you trust this website?</p>
+            <p><b id="HyperlinkPreview-Popup-trust-link"></b></p>
+            <p>!Scripts may run from this website!</p>
+            <p><b id="HyperlinkPreview-Popup-trust-warning">You have previously NOT trusted this website</b></p>
+            <br>
+
+            <div class="HyperlinkPreview-Popup-ButtonArray">
+                <button id="HyperlinkPreview-TrustButton" class="HyperlinkPreview-Popup-Secondary">Trust</button>
+                <button id="HyperlinkPreview-DontTrustButton" class="HyperlinkPreview-Popup-Primary">Don't Trust</button>
+            </div>
+        </div>
+        <div id="HyperlinkPreview-BottomNav">
+            <div class="HyperlinkPreview-Flex">
+                <p>Allow Scripting</p>
+                <input type="checkbox" name="Scripting" id="HyperlinkPreview-ScriptingAuth">
+            </div>
+        </div>
+    </div>
+</HyperlinkPreviewer>
+<style>
+    HyperlinkPreviewer {
+        all: initial;
+    }
+
+    HyperlinkPreviewer * {
+        all: revert;
+    }
+
+    p {
+        display: block;
+        margin: 0px;
+    }
+
+    button {
+        display: block;
+        color: black;
+        padding: 4px 8px;
+        font-size: 16px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 5px;
+        border: 2px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    .HyperlinkPreview-Flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .HyperlinkPreview-Row {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .HyperlinkPreview-Popup-Secondary {
+        background-color: transparent;
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
+        transition: all 0.25s;
+    }
+
+    .HyperlinkPreview-Popup-Secondary:hover {
+        background-color: rgb(255, 153, 153);
+        border-color: darkred;
+    }
+
+    .HyperlinkPreview-Popup-Primary {
+        background-color: rgb(153, 240, 255);
+        transition: all 0.25s;
+    }
+
+    .HyperlinkPreview-Popup-Primary:hover {
+        background-color: rgb(55, 225, 255);
+    }
+
+    .HyperlinkPreview-Popup-ButtonArray {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+    }
+
+    #HyperlinkPreview-Popup {
+        display: none;
+        position: fixed;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        border: 3px solid black;
+        padding: 10px;
+
+        overflow: hidden;
+        z-index: 100000000;
+    }
+
+    #HyperlinkPreview-Popup * {}
+
+    #HyperlinkPreview-TopNav {
+        color: black;
+    }
+
+    #HyperlinkPreview-Popup-content {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    #HyperlinkPreview-Popup-content:hover {}
+
+    #HyperlinkPreview-Popup-ContentHelper {
+        width: 350px;
+        height: 250px;
+        top: 0px !important;
+    }
+
+    #HyperlinkPreview-Popup-forbidden {
+        display: none;
+    }
+
+    #HyperlinkPreview-Popup-loading {
+        display: none;
+    }
+
+    #HyperlinkPreview-Popup-trust {
+        padding-top:20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #HyperlinkPreview-Popup-trust-warning {
+        display: none;
+    }
+
+    #HyperlinkPreview-TopNav-CloseButton {
+        padding: 0;
+        height: 12px;
+        width: 12px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    #HyperlinkPreview-IconButton{
+        padding:4px;
+    }
+</style>
